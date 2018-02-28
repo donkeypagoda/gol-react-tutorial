@@ -54,6 +54,7 @@ class Grid extends React.Component{
 class Buttons extends React.Component{
 
   handleSelect = (e) => {
+    console.log("tits")
     this.props.gridSize(e)
   }
 
@@ -160,11 +161,11 @@ class Main extends React.Component{
       case "1":
         this.cols = 20;
         this.rows = 10;
-      break
+      break;
       case "2":
         this.cols = 50;
         this.rows = 30;
-      break
+      break;
       default:
         this.cols = 70;
         this.rows = 50;
