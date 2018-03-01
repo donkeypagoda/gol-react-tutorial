@@ -54,7 +54,6 @@ class Grid extends React.Component{
 class Buttons extends React.Component{
 
   handleSelect = (e) => {
-    console.log("tits")
     this.props.gridSize(e)
   }
 
