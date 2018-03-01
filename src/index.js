@@ -170,7 +170,6 @@ class Main extends React.Component{
         this.rows = 50;
     }
     this.clear()
-    // this.seed()
   }
 
   play = () => {
