@@ -103,8 +103,8 @@ class Main extends React.Component{
 
     this.state = {
       generation: 0,
-      rows: this.rows,
-      cols: this.cols,
+      rows: 30,
+      cols: 50,
       gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
     }
   }
@@ -118,8 +118,8 @@ class Main extends React.Component{
 
   seed = () => {
     let gridCopy = arrayClone(this.state.gridFull)
-    for (let i = 0; i < this.rows; i++){
-      for (let j = 0; j < this.cols; j++){
+    for (let i = 0; i < this.state.rows; i++){
+      for (let j = 0; j < this.state.cols; j++){
         if (Math.floor(Math.random() * 4) === 1){
           gridCopy[i][j] = true
         }
@@ -150,36 +150,36 @@ class Main extends React.Component{
   }
 
   clear = () => {
-    let grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false))
+    let grid = Array(this.state.rows).fill().map(() => Array(this.state.cols).fill(false))
     this.setState({
       gridFull: grid,
-      rows: this.rows,
-      cols: this.cols,
       generation: 0
     })
   }
 
   gridSize = (size) => {
+    // this.clear()
     switch (size){
       case "1":
         this.setState({
-          cols: 20,
-          rows: 10
+          rows: 20,
+          cols: 10
         });
       break;
       case "2":
       this.setState({
-        cols: 20,
-        rows: 10
+        rows: 50,
+        cols: 30
       });
       break;
       default:
       this.setState({
-        cols: 20,
-        rows: 10
+        rows: 70,
+        cols: 50
       });
     }
-    this.seed()
+
+    this.clear()
   }
 
   play = () => {
