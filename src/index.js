@@ -103,8 +103,8 @@ class Main extends React.Component{
 
     this.state = {
       generation: 0,
-      rows: 30,
-      cols: 50,
+      rows: this.rows,
+      cols: this.cols,
       gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
     }
   }
