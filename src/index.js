@@ -103,6 +103,8 @@ class Main extends React.Component{
 
     this.state = {
       generation: 0,
+      rows: 30,
+      cols: 50,
       gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
     }
   }
@@ -151,6 +153,8 @@ class Main extends React.Component{
     let grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false))
     this.setState({
       gridFull: grid,
+      rows: this.rows,
+      cols: this.cols,
       generation: 0
     })
   }
@@ -158,18 +162,24 @@ class Main extends React.Component{
   gridSize = (size) => {
     switch (size){
       case "1":
-        this.cols = 20;
-        this.rows = 10;
+        this.setState({
+          cols: 20,
+          rows: 10
+        });
       break;
       case "2":
-        this.cols = 50;
-        this.rows = 30;
+      this.setState({
+        cols: 20,
+        rows: 10
+      });
       break;
       default:
-        this.cols = 70;
-        this.rows = 50;
+      this.setState({
+        cols: 20,
+        rows: 10
+      });
     }
-    this.clear()
+    this.seed()
   }
 
   play = () => {
@@ -193,6 +203,8 @@ class Main extends React.Component{
 		}
 		this.setState({
 		  gridFull: g2,
+      rows: this.rows,
+      cols: this.cols,
 		  generation: this.state.generation + 1
     });
   }
