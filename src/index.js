@@ -161,10 +161,13 @@ class Main extends React.Component{
     // this.clear()
     switch (size){
       case "1":
+      let rows = 20
+      let cols = 10
         this.setState({
           rows: 20,
           cols: 10
-        });
+        }, () => this.seed);
+            console.log(this.state.rows)
       break;
       case "2":
       this.setState({
