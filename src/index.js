@@ -105,7 +105,7 @@ class Main extends React.Component{
       generation: 0,
       rows: 30,
       cols: 50,
-      gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
+      gridFull: Array(30).fill().map(() => Array(50).fill(false))
     }
   }
   selectBox = (row, col) => {
@@ -150,7 +150,7 @@ class Main extends React.Component{
   }
 
   clear = () => {
-    let grid = Array(this.state.rows).fill().map(() => Array(this.state.cols).fill(false))
+    let grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false))
     this.setState({
       gridFull: grid,
       generation: 0
@@ -161,13 +161,11 @@ class Main extends React.Component{
     // this.clear()
     switch (size){
       case "1":
-      let rows = 20
-      let cols = 10
-        this.setState({
-          rows: 20,
-          cols: 10
-        }, () => this.seed);
-            console.log(this.state.rows)
+      this.setState({
+        rows: 20,
+        cols: 10
+      });
+      console.log(this.state.rows)
       break;
       case "2":
       this.setState({
@@ -232,8 +230,8 @@ class Main extends React.Component{
         />
         <Grid
           gridFull={this.state.gridFull}
-          rows={this.rows}
-          cols={this.cols}
+          rows={this.state.rows}
+          cols={this.state.cols}
           selectBox={this.selectBox}
         />
         <h2>Generations: {this.state.generation}</h2>
